@@ -1,0 +1,47 @@
+# Save all the sensitive configuration separatly
+[include]
+  path = ~/.gitconfig.private
+[color]
+  ui = true
+  interactive = auto
+[core]
+  autocrlf = input
+  ignorecase = false
+[branch]
+  autosetuprebase = always
+[push]
+  default = simple
+[status]
+  showUntrackedFiles = all
+[merge]
+  ff = only
+[mergetool]
+  keepBackup = false
+  prompt = false
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustexitcode = true
+[fetch]
+  prune = true
+[pull]
+  ff = only
+  rebase = true
+[rebase]
+  autoStash = true
+[rerere]
+  enabled = true
+[tag]
+  sort = version:refname
+[alias]
+  dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  contributors = shortlog --numbered --summary --email --no-merges
+  current = rev-parse --abbrev-ref HEAD
+  cram = push --force-with-lease
+  fixup = commit --amend --no-edit
+  last  = diff HEAD^ HEAD
+  log5 = log -5 --topo-order --graph --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(yellow bold)(%an)%Creset'
+  logb = !sh -c 'git log -$(git rev-list --count HEAD ^${1:-master}) --topo-order --graph --date=relative --pretty=format:%Cgreen%h%Creset\\ %s%Cred%d%Creset\\ %C\\(yellow\\ bold\\)\\(%an\\)%Creset'
+  retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
+  shallow = clone --depth=1
