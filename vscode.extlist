@@ -10,8 +10,8 @@ ms-azuretools.vscode-docker
 ms-kubernetes-tools.kind-vscode
 ms-kubernetes-tools.vscode-kubernetes-tools
 ms-vscode.cpptools
+redhat.vscode-commons
 redhat.vscode-yaml
 samuelcolvin.jinjahtml
 timonwong.shellcheck
 vscode-icons-team.vscode-icons
-vscoss.vscode-ansible

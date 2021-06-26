@@ -8,10 +8,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Custom GOPATH
-export GOPATH="${HOME}/Codes/go"
+export GOPATH="${HOME}/Developer/go"
 
-# Path for brew installed binary and go binary
-export PATH="/usr/local/sbin:${PATH}:${GOPATH}/bin"
+# Path for brew installed binary, go binary and krew plugins
+export PATH="/usr/local/sbin:${PATH}:${GOPATH}/bin:${HOME}/.krew/bin"
 
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
@@ -25,6 +25,8 @@ export MANPATH="/usr/local/man:${MANPATH}"
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+export SCCACHE_CACHE_SIZE="50G"
+
 # Set name of the theme to load
 ZSH_THEME="powerlevel10k/powerlevel10k"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -32,9 +34,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Disable bi-weekly auto-update checks.
 typeset -g DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to enable command auto-correction.
-typeset -g ENABLE_CORRECTION="true"
 
 # Command execution time stamp shown in the history command output.
 typeset -g HIST_STAMPS="yyyy-mm-dd"
@@ -73,6 +72,8 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 # Kubernetes
 alias k="kubectl"
 alias kget="k get"
+alias kyaml="kget -o yaml"
+alias kwide="kget -o wide"
 alias kdesc="k describe"
 alias kapply="k apply -f"
 alias kdel="k delete"
@@ -89,30 +90,29 @@ alias kl10="klog --tail=10"
 
 # K8s Pods
 alias kgp="kget pods"
-alias kgpyaml="kget pods -o yaml"
-alias kgpwide="kget pods -o wide"
+alias kgpyaml="kyaml pods"
+alias kgpwide="kwide pods"
 alias kpf="k port-forward"
 
 # K8s Services
 alias kgs="kget svc"
-alias kgsyaml="kget svc -o yaml"
-alias kgswide="kget svc -o wide"
+alias kgsyaml="kyaml svc"
+alias kgswide="kwide svc"
 
 # K8s Deployments
 alias kgd="kget deploy"
-alias kgdyaml="kget deploy -o yaml"
-alias kgdwide="kget deploy -o wide"
+alias kgdyaml="kyaml deploy"
+alias kgdwide="kwide deploy"
 alias kscale="k scale deploy"
 
 # K8s ConfigMaps
 alias kgcm="kget cm"
-alias kgcmyaml="kget cm -o yaml"
+alias kgcmyaml="kyaml cm"
 
 # K8s Secrets
 alias kgsec="kget secrets"
-alias kgsecyaml="kget secrets -o yaml"
+alias kgsecyaml="kyaml secrets"
 
 # K8s Nodes
 alias kgn="kget nodes"
 alias kdn="kdesc nodes"
-alias kresources="kdesc nodes | fgrep 'Allocated resources:' -A6"
