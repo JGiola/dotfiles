@@ -10,10 +10,22 @@ with Oh My Zsh.
 
 Before going further you must known that for this repository to work as
 intended you must have installed at least `cURL` and have launched this
-command:
+command on macOS:
 
 ```sh
 xcode-select --install
+```
+
+Or if you are on Linux:
+
+```sh
+# for Debian/Ubuntu distribution
+sudo apt-get install build-essential procps curl file git
+
+# for Fedora, CentOS or RHEL distribution
+sudo dnf groupinstall 'Development Tools'
+sudo dnf install procps-ng curl file git
+sudo dnf install libxcrypt-compat # needed by Fedora 30 and up
 ```
 
 ## Installation

@@ -41,12 +41,16 @@ typeset -g HIST_STAMPS="yyyy-mm-dd"
 # Which plugins would you like to load?
 typeset -g plugins=(
   ansible
+  aws
   docker
   git
   terraform
 )
 
 source "${ZSH}/oh-my-zsh.sh"
+
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 # Copy the main rsa key to clipboard
 alias rsakey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied id_rsa to clipboard'"
