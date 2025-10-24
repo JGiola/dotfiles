@@ -1,0 +1,83 @@
+[include]
+  path = config.private
+[advice]
+	skippedCherryPicks = false
+	statusHints = false
+	implicitIdentity = false
+[color]
+	ui = auto
+	interactive = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[core]
+	ignoreCase = false
+	untrackedCache = true
+	safecrlf = warn
+	autocrlf = input
+	pager = less
+	whitespace = trailing-space,space-before-tab
+[branch]
+	autoSetupRebase = always
+	sort = -committerdate
+[commit]
+	#gpgsign = true
+[fetch]
+	prune = true
+	pruneTags = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main
+[merge]
+	conflictstyle = zdiff3
+	ff = only
+	log = true
+	stat = true
+	autoStash = true
+[mergetool]
+	keepBackup = false
+	prompt = true
+[pull]
+	ff = only
+	rebase = true
+[push]
+	autoSetupRemote = true
+	default = current
+	followTags = true
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[status]
+	showUntrackedFiles = all
+[stash]
+	showPatch = true
+	showIncludeUntracked = true
+[tag]
+	sort = version:refname
+	# gpgSign = true
+[alias]
+	amend = commit --amend
+	contributors = shortlog --numbered --summary --email --no-merges
+	cram = push --force-with-lease
+	current = rev-parse --abbrev-ref HEAD
+	find = log --grep
+	fixup = commit --amend --no-edit
+	last = log -1 HEAD --stat

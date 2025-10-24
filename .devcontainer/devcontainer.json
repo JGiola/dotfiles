@@ -1,0 +1,18 @@
+{
+	"name": "Debian",
+	"build": {
+		"dockerfile": "./Dockerfile",
+		"context": "."
+	},
+	"remoteUser": "devcontainer",
+	"customizations": {
+		"vscode": {
+				"extensions": [
+					"editorconfig.editorconfig",
+					"davidanson.vscode-markdownlint",
+					"timonwong.shellcheck",
+					"redhat.vscode-yaml"
+				]
+		}
+	}
+}

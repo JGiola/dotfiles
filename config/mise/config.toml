@@ -1,0 +1,32 @@
+[settings]
+
+always_keep_install = false
+always_keep_download = false
+
+plugin_autoupdate_last_check_duration = '0'
+idiomatic_version_file_enable_tools = ["go", "node", "ruby"]
+
+verbose = false
+http_timeout = "30s"
+jobs = 2
+raw = false
+
+not_found_auto_install = true
+task_output = "prefix"
+paranoid = false
+
+experimental = false
+
+# configure messages displayed when entering directories with config files
+status = { missing_tools = "if_other_versions_installed", show_env = false, show_tools = false }
+
+[tools]
+go = "1.25"
+kubectl = "1.34"
+kind = "latest"
+k9s = "latest"
+oras = "latest"
+usage = "latest"
+yq = "latest"
+golangci-lint = "latest"
+pre-commit = "latest"

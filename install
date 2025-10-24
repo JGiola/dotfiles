@@ -1,0 +1,44 @@
+#! /usr/bin/env sh
+
+set -o nounset
+set -o errexit
+
+# Set the umask for readwrite only from the current user and read for anyone else
+umask 0022
+
+## Check if the script is running as root
+if [ "$(id -u)" -eq 0 ]; then
+	echo "This script should not be run as root" 1>&2
+	exit 1
+fi
+
+CURRDIR="$(dirname "$(readlink -f "$0")")"
+
+OS_TYPE="$(uname -s)"
+## Check if the script is running on a supported OS
+case "${OS_TYPE}" in
+	'Linux')
+		DISTRO=$(awk -F= '/^ID/{print $2}' /etc/os-release)
+		if [ "$DISTRO" != "ubuntu" ] && [ "$DISTRO" != "debian" ]; then
+			echo "This script is only supported on Debian like distro" 1>&2
+			exit 1
+		fi
+		sh -c "${CURRDIR}/lib/setup-apt.sh"
+	;;
+	'Darwin')
+		sh -c "${CURRDIR}/lib/setup-brew.sh \"${CURRDIR}\""
+		sh -c "${CURRDIR}/macos/config.sh \"${CURRDIR}\""
+	;;
+	*)
+		echo "This script is only supported on Linux or macOS" 1>&2
+		exit 1
+	;;
+esac
+
+. "${CURRDIR}/lib/xdg-definition.sh"
+sh -c "${CURRDIR}/lib/setup-omz.sh"
+sh -c "${CURRDIR}/lib/setup-configs.sh \"${CURRDIR}\""
+sh -c "${CURRDIR}/lib/setup-mise.sh"
+sh -c "${CURRDIR}/lib/setup-krew.sh"
+
+sudo chsh -s "$(which zsh)" "$(whoami)"

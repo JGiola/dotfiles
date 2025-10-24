@@ -1,0 +1,112 @@
+" XDG Base Directory extended support
+
+if empty($MYVIMRC) | let $MYVIMRC = expand('<sfile>:p') | endif
+
+if !has('nvim')
+  set runtimepath^=$XDG_CONFIG_HOME/vim
+  set runtimepath+=$XDG_DATA_HOME/vim
+  set runtimepath+=$XDG_CONFIG_HOME/vim/after
+
+  set packpath^=$XDG_DATA_HOME/vim,$XDG_CONFIG_HOME/vim
+  set packpath+=$XDG_CONFIG_HOME/vim/after,$XDG_DATA_HOME/vim/after
+
+  set backupdir=$XDG_STATE_HOME/vim/backup | call mkdir(&backupdir, 'p', 0700)
+  set directory=$XDG_STATE_HOME/vim/swap   | call mkdir(&directory, 'p', 0700)
+  set viewdir=$XDG_STATE_HOME/vim/view     | call mkdir(&viewdir,   'p', 0700)
+  set undodir=$XDG_STATE_HOME/vim/undo     | call mkdir(&undodir,   'p', 0700)
+  set viminfofile=$XDG_STATE_HOME/vim/viminfo
+endif
+
+let g:netrw_home = $XDG_DATA_HOME."/vim"
+call mkdir($XDG_DATA_HOME."/vim/spell", 'p', 0755)
+call mkdir($XDG_STATE_HOME."/vim", 'p', 0755)
+
+"Using vim as vim
+set nocompatible
+
+"Change mapleader
+let mapleader=","
+
+"Line numbers are good
+set number
+"Enable syntax highlighting
+syntax on
+"Enhance command-line completion
+set wildmenu
+"Allow backspace in insert mode
+set backspace=indent,eol,start
+"Store lots of :cmdline history
+set history=50
+"Show incomplete cmds down the bottom
+set showcmd
+"Show current mode down the bottom
+set showmode
+"No sounds
+set visualbell
+"Allow cursor keys in insert mode
+set esckeys
+"Enable mouse in all modes
+set mouse=a
+
+"Set colum with to 100
+set colorcolumn=100
+"Highlight current line
+set cursorline
+"Use UTF-8
+set encoding=utf-8
+"Don't wrap lines
+set nowrap
+"Wrap lines at convenient points
+set linebreak
+"Show “invisible” characters
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set list
+
+"Use 2 spaces to a tab
+set tabstop=2
+"As above
+set shiftwidth=2
+"Expand tabs into spaces
+set expandtab
+
+"Highlight searches
+set hlsearch
+"Ignore case of searches
+set ignorecase
+"Highlight dynamically as pattern is typed
+set incsearch
+
+"Optimize for fast terminal connections
+set ttyfast
+
+"Stupid shift key is stupid
+cnoreabbrev W w
+cnoreabbrev X x
+cnoreabbrev Xa xa
+cnoreabbrev Q q
+cnoreabbrev Wq wq
+cnoreabbrev WQ wq
+
+"Why Y is not as C and D?
+nnoremap Y y$
+
+"When searching for things, keep the current match in the middle of the window and pulse the line when moving to them
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+"Reload files changed outside vim
+set autoread
+
+"Disable all tipe of backup
+set noswapfile
+set nobackup
+set nowritebackup
+
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    set clipboard=unnamed
+  else
+    set clipboard=unnamedplus
+  endif
+endif
