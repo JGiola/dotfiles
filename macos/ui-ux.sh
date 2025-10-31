@@ -6,7 +6,7 @@ set -o errexit
 # Set the umask for readwrite only from the current user and read for anyone else
 umask 0022
 
-# Confiure general appearance and behavior settings
+#  Configure general appearance and behavior settings
 defaults write -g AppleAccentColor -int 3
 defaults write -g AppleHighlightColor -string '0.752941 0.964706 0.678431 Green'
 defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool true
