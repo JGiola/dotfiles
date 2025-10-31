@@ -15,7 +15,7 @@ sudo defaults write com.apple.AddressBook ABDefaultAddressCountryCode -string 'i
 # Show week numbers in Calendar
 defaults write com.apple.iCal 'Show Week Numbers' -bool true
 
-# Configure Muisc plyaback quality settings
+# Configure Music playback quality settings
 sudo defaults write com.apple.Music losslessEnabled -bool true
 sudo defaults write com.apple.Music preferredDolbyAtmosPlaySetting -int 30
 sudo defaults write com.apple.Music preferredDownloadAudioQuality -int 15
