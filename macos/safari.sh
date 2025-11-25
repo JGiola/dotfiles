@@ -17,7 +17,7 @@ sudo defaults write com.apple.Safari PrivateSearchEngineUsesNormalSearchEngineTo
 sudo defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 sudo defaults write com.apple.Safari DownloadsClearingPolicy -int 2
 
-# Configure Safari general appearence and behavior
+# Configure Safari general appearance and behavior
 sudo defaults write com.apple.Safari HistoryAgeInDaysLimit -int 30
 sudo defaults write com.apple.Safari NewWindowBehavior -int 0
 sudo defaults write com.apple.Safari EnableNarrowTabs -int 0

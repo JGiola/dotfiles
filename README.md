@@ -3,7 +3,7 @@
 This repository contains my dotfiles. I’m trying to keep them well organized and to try to put all
 the configurations states and caches following the [XDG Base Directory Specification].
 
-For now is set for working okey inside a Debian WSL2 container and on a macOS machine, maybe in the
+For now is set for working ok inside a Debian WSL2 container and on a macOS machine, maybe in the
 future it will be updated for other machines...
 
 ## How To

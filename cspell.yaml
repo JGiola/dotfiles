@@ -1,0 +1,44 @@
+version: "0.2"
+language: "en,en-GB,en-US"
+
+useGitignore: true
+allowCompoundWords: true
+
+words:
+- recents
+- sosumi
+
+ignoreWords:
+- buildx
+- chflags
+- dnam
+- dnsutils
+- dont
+- fpath
+- golangci
+- inputrc
+- kipl
+- krew
+- kubectx
+- nlsv
+- nohidden
+- nopasswd
+- oras
+- osascript
+- shellenv
+- tcsh
+- tlsv
+- usbutils
+- wgetrc
+- wvous
+- ykman
+- yubikey
+- zcompdump
+
+files:
+- 'install'
+- '**/*.md'
+- '**/*.sh'
+- '**/.zshrc'
+- '**/.zprofile'
+- '**/*.applescript'

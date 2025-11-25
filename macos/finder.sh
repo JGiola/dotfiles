@@ -20,7 +20,7 @@ defaults write com.apple.finder FXPreferredViewStyle -string 'Nlsv'
 defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowPathbar -bool true
 
-# Confiure Finder info panes
+# Configure Finder info panes
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	Comments -bool false \
 	General -bool true \
