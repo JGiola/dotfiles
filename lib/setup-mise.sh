@@ -18,4 +18,4 @@ mise exec kind -- kind completion zsh | sudo tee "${COMPLETION_PREFIX}/share/zsh
 mise exec k9s -- k9s completion zsh | sudo tee "${COMPLETION_PREFIX}/share/zsh/site-functions/_k9s" > /dev/null
 mise exec oras -- oras completion zsh | sudo tee "${COMPLETION_PREFIX}/share/zsh/site-functions/_oras" > /dev/null
 mise exec yq -- yq completion zsh | sudo tee "${COMPLETION_PREFIX}/share/zsh/site-functions/_yq" > /dev/null
-mise exec yq -- golangci-lint completion zsh | sudo tee "${COMPLETION_PREFIX}/share/zsh/site-functions/_golangci-lint" > /dev/null
+mise exec golangci-lint -- golangci-lint completion zsh | sudo tee "${COMPLETION_PREFIX}/share/zsh/site-functions/_golangci-lint" > /dev/null
